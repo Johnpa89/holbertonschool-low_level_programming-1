@@ -1,40 +1,49 @@
-# 0x00. C - Hello, World
+# 0x01. C - Variables, if, else, while
 
 ## Description
 What you should learn from this project:
 
-* What happens when you type gcc main.c
-* What is an entry point
-* What is main
-* How to print text using printf, puts and putchar
-* How to find the right header to include in your source code when using a standard library function
-* What is the official Holberton C coding style and how to check your code with betty-style
+* What are the logical operators (sometimes called boolean operators) and how to use them
+* What the the relational operators and how to use them
+* How to declare variables of types char, int, unsigned int
+* How to print the values of variables of type char, int, unsigned int with printf
+* What is the ASCII character set
+* What are the purpose of the gcc flags -m32 and -m64
 
 ---
 
-### [0. Preprocessor ] (./0-preprocessor)
-* Write a script that runs a C file through the preprocessor and save the result into another file. 
+### [0. Positive anything is better than negative nothing] (./0-positive_or_negative.c)
+* This program will assign a random number to the variable n each time it is executed. Complete the source code in order to print whether the number stored in the variable n is positive or negative.
 
-### [1. Compiler ] (./1-compiler)
-* Write a script that compiles a C file but does not link.
+### [1. The last digit ] (./1-last_digit.c)
+* This program will assign a random number to the variable n each time it is executed. Complete the source code in order to print the last digit of the number stored in the variable n.
 
-### [2. Assembler ] (./2-assembler)
-* Write a script that generates the assembly code of a C code and save it in an output file.
+### [2. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game] (./2-print_alphabet.c)
+* Write a program that prints the alphabet in lowercase, followed by a new line.
 
-### [3. Name ] (./3-name)
-* Write a script that compiles a C file and creates an executable named cisfun.
+### [3. When I was having that alphabet soup, I never thought that it would pay off] (./4-print_alphabt.c)
+* Write a program that prints the alphabet in lowercase (except q and e), followed by a new line.
 
-### [4. Hello, puts ] (./4-puts.c)
-* Write a C program that prints exactly "Programming is like building a multilingual puzzle, followed by a new line.
+### [4. alphABET] (./3-print_alphabets.c)
+* Write a program that prints the alphabet in lowercase, and then in uppercase, followed by a new line.
 
-### [5. Hello, printf ] (./5-printf.c)
-* Write a C program that prints exactly with proper grammar, but the outcome is a piece of art,, followed by a new line.
+### [5. Numbers] (./5-print_numbers.c)
+* Write a program that prints all single digit numbers of base 10 starting from 0, followed by a new line.
 
-### [6. Size is not grandeur, and territory does not make a nation] (./6-size.c)
-* Write a C program that prints the size of various types on the computer it is compiled and run on.
+### [6. Numberz] (./6-print_numberz.c)
+* Write a program that prints all single digit numbers of base 10 starting from 0, followed by a new line.
 
-### [7. What happens when you type gcc main.c] (https://medium.com/@antisyllogism/what-happens-when-you-run-gcc-main-c-6c5ee9c51092)
-* Blog
+### [7. Smile in the mirror] (./7-print_tebahpla.c)
+* Write a program that prints the lowercase alphabet in reverse, followed by a new line.
+
+### [8. Hexadecimal] (./8-print_base16.c)
+* Write a program that prints all the numbers of base 16 in lowercase, followed by a new line.
+
+### [9. Patience, persistence and perspiration make an unbeatable combination for success] (./9-print_comb.c)
+* Write a program that prints all possible combinations of single-digit numbers.
+
+### [10. 00...99] (./10-print_comb2.c)
+* Write a program that prints the numbers from 00 to 99.
 
 ---
 

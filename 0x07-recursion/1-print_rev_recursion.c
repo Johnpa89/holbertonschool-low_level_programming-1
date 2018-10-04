@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * void _print_rev_recursion - Entry point
+ * _print_rev_recursion - Entry point
  * @s: input
  * Return: Always 0 (Success)
  */

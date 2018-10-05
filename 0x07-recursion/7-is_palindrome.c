@@ -17,6 +17,11 @@ int is_palindrome(char *s)
 	return (palindrome(s, 0, len - 1));
 }
 
+/**
+ * lengthc - finds the length count
+ * @s: input
+ * Return: length size
+ */
 int lengthc(char *s)
 {
 	if (*s != '\0')
@@ -24,6 +29,13 @@ int lengthc(char *s)
 	return (0);
 }
 
+/**
+ * palindrome - checks if start and end of string matches
+ * @str: string
+ * @st: start of string 0
+ * @end: end of string from is_palindrome, from lengthc
+ * Return: if str is a palindrome
+ */
 int palindrome(char str[], int st, int end)
 {
 	if (st >= end)

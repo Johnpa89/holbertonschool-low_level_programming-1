@@ -1,9 +1,36 @@
 #include "holberton.h"
+int lengthc(char *s);
+int palindrome(char str[], int st, int end);
 /**
- * main - Entry Point
+ * is_palindrome - Entry Point
+ * @s: input
  * Return: 0
  */
-int main(void)
+int is_palindrome(char *s)
 {
+	int len;
+
+	len = lengthc(s);
+
+	if (len == 0)
+		return (1);
+	return (palindrome(s, 0, len - 1));
+}
+
+int lengthc(char *s)
+{
+	if (*s != '\0')
+		return (1 + lengthc(s + 1));
 	return (0);
+}
+
+int palindrome(char str[], int st, int end)
+{
+	if (st >= end)
+		return (1);
+	if (str[st] != str[end])
+		return (0);
+	if (st <= end || st < end + 1)
+		return (palindrome(str, st + 1, end - 1));
+	return (1);
 }

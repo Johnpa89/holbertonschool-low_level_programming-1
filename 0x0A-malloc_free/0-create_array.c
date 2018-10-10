@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "holberton.h"
 /**
- * create_array - 
+ * create_array - main entry
  * @size: size input
  * @c: char
  * Return: 0

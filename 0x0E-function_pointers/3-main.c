@@ -8,8 +8,8 @@
  * if op is null, return Error & exit 99
  * if div or mod 0, return Error & exit 100
  * run calc, input one, operator, input two = func res of get_op_func
- * argc: arguments
- * argv: double pointer to arguments
+ * @argc: arguments
+ * @argv: double pointer to arguments
  * Return: 0
  */
 int main(int argc, char *argv[])
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	one = atoi(argv[1]);
 	two = atoi(argv[3]);
 	get_op = *argv[2];
-	
+
 	if (get_op_func(argv[2]) == NULL)
 	{
 		printf("Error\n");
@@ -39,7 +39,6 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	
 	printf("%d\n", (get_op_func(argv[2])(one, two)));
 	return (0);
 }

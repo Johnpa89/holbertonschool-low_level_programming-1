@@ -14,7 +14,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int one, two;
+	int one, two, ans;
 	int (*res)(int, int);
 	char *get_op;
 
@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
 	}
 
 	res = get_op_func(get_op);
+	ans = res(one, two);
 
-	printf("%d\n", res(one, two));
+	printf("%d\n", ans);
 	return (0);
 }

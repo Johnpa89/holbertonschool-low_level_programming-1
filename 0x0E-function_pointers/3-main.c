@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	get_op = argv[2];
 
 	/* added edge case if argv[2] was longer than 1 char*/
-	if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0') 
+	if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);

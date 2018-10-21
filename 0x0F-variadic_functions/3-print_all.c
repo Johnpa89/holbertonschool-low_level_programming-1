@@ -16,16 +16,16 @@ void print_all(const char * const format, ...)
 
 	va_start(valist, format);
 
-	while (format[i])
+	while (format && format[i])
 		i++;
 
-	while (format[n] && !NULL)
+	while (format && format[n])
 	{
 		if (n  == (i - 1))
 		{
 			sep = "";
 		}
-		switch (format[n])
+		switch (format && format[n])
 		{
 		case 'c':
 			printf("%c%s", va_arg(valist, int), sep);

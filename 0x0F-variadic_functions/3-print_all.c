@@ -19,7 +19,7 @@ void print_all(const char * const format, ...)
 	while (format[i])
 		i++;
 
-	while (format[n])
+	while (format[n] && !NULL)
 	{
 		if (n  == (i - 1))
 		{

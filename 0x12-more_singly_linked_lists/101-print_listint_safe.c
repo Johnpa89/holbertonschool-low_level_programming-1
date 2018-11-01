@@ -4,7 +4,7 @@
  * @head: head
  * Return: 0
  */
-size_t print_listint_safe(const listint_t *head);
+size_t print_listint_safe(const listint_t *head)
 {
 	if (head == NULL)
 		exit(98);

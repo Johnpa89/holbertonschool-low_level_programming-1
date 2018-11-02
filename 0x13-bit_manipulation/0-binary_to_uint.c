@@ -1,4 +1,3 @@
-#include <ctype.h>
 #include "holberton.h"
 /**
  * binary_to_uint - Entry Point
@@ -12,9 +11,9 @@ unsigned int binary_to_uint(const char *b)
 
 	b_temp = atoi(b);
 
-	while (b[i] != '\0')
+	while (b[i + 1] != '\0')
 	{
-		if (!isdigit(b[i]))
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
 		i++;
 	}
@@ -28,4 +27,5 @@ unsigned int binary_to_uint(const char *b)
 	}
 
 	return (res);
+
 }

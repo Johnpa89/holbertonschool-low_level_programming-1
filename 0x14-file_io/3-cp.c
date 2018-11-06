@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, close_from, close_to, rd_from, wr_err;
+	int file_from, file_to, close_from, close_to, file_from_r, wr_err;
 	char buf[1024];
 
 	if (argc != 3)
@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
+	file_from_r = read(file_from, buf, 1024);
+
 	file_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (file_to == -1)
 	{
@@ -30,14 +32,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	rd_from = read(file_from, buf, 1024);
-	if (rd_from == -1)
-	{
-		dprintf(2, "Error: Can't read from file NAME_OF_THE_FILE");
-		exit(98);
-	}
-
-	wr_err = write(file_to, buf, rd_from);
+	wr_err = write(file_to, buf, file_from_r);
 	if (wr_err == -1)
 	{
 		dprintf(2, "Error: Can't write to NAME_OF_THE_FILE");

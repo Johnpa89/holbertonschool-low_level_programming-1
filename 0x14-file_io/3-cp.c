@@ -1,4 +1,5 @@
 #include "holberton.h"
+void closer(int arg_files);
 /**
  * main - Entry Point
  * @argc: # of args
@@ -7,8 +8,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, close_from, close_to, file_from_r, wr_err;
-	char buf[1024];
+	int file_from, file_to, file_from_r, wr_err;
+	char *buf;
 
 	if (argc != 3)
 	{
@@ -19,8 +20,15 @@ int main(int argc, char *argv[])
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		dprintf(2, "Error: Can't read from file NAME_OF_THE_FILE");
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+	}
+
+	buf = malloc(sizeof(char) * 1024);
+	if (buf == NULL)
+	{
+		dprintf(2, "Error: Can't write to %s\n", argv[1]);
+		exit(99);
 	}
 
 	file_from_r = read(file_from, buf, 1024);
@@ -28,23 +36,36 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (file_to == -1)
 	{
-		dprintf(2, "Error: Can't write to NAME_OF_THE_FILE");
+		dprintf(2, "Error: Can't write to %s\n", argv[1]);
 		exit(99);
 	}
 
 	wr_err = write(file_to, buf, file_from_r);
 	if (wr_err == -1)
 	{
-		dprintf(2, "Error: Can't write to NAME_OF_THE_FILE");
+		dprintf(2, "Error: Can't write to %s\n", argv[1]);
 		exit(99);
 	}
 
-	close_from = close(file_from);
-	close_to = close(file_to);
-	if (close_from == -1 || close_to == -1)
+	closer(file_from);
+	closer(file_to);
+	return (1);
+}
+
+/**
+ * closer - close with error
+ * @arg_files: argv 1 or 2
+ * Return: void
+ */
+void closer(int arg_files)
+{
+	int close_err;
+
+	close_err = close(arg_files);
+
+	if (close_err == -1)
 	{
-		dprintf(2, "Error: Can't close fd FD_VALUE");
+		dprintf(2, "Error: Can't close fd %d\n", arg_files);
 		exit(100);
 	}
-	return (1);
 }

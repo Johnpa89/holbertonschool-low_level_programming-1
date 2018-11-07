@@ -9,7 +9,7 @@ void closer(int arg_files);
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, file_from_r, wr_err;
-	char *buf;
+	char buf[1024];
 
 	if (argc != 3)
 	{
@@ -24,15 +24,6 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[1]);
-		exit(99);
-	}
-
-	file_from_r = read(file_from, buf, 1024);
-
 	file_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (file_to == -1)
 	{
@@ -40,16 +31,27 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	wr_err = write(file_to, buf, file_from_r);
-	if (wr_err == -1)
+	while (file_from_r >= 1024)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[1]);
-		exit(99);
+		file_from_r = read(file_from, buf, 1024);
+		if (file_from_r == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			closer(file_from);
+			closer(file_to);
+			exit(98);
+		}
+		wr_err = write(file_to, buf, file_from_r);
+		if (wr_err == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", argv[1]);
+			exit(99);
+		}
 	}
 
 	closer(file_from);
 	closer(file_to);
-	return (1);
+	return (0);
 }
 
 /**

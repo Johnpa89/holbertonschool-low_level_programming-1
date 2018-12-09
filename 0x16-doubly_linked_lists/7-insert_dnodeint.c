@@ -37,10 +37,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp = temp->next;
 		count++;
 	}
-	if (count < idx)
+	if (count == idx) /* end of DLL */
 	{
-		free(new);
-		return (NULL);
+		new->prev = temp; /* current prev to back link */
+		new->next = NULL; /* current next to NULL*/
+		temp->next = new; /* back next link */
 	}
 	return (new);
 }

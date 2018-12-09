@@ -43,5 +43,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new->next = NULL; /* current next to NULL*/
 		temp->next = new; /* back next link */
 	}
+	if (count < idx)
+	{
+		free(new);
+		return (NULL);
+	}
 	return (new);
 }

@@ -29,13 +29,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (count == idx) /* found back */
 		{
-			new->prev = temp;
-			new->next = temp->next;
-			temp->next = new;
-		}
-		if (count == (idx + 1)) /* found front */
-		{
-			temp->prev = temp->prev->next;
+			new->prev = temp; /* current prev to back link */
+			new->next = temp->next; /* current next to front link*/
+			temp->next = new; /* back next link */
+			new->next->prev = new; /* from prev link */
 		}
 		temp = temp->next;
 		count++;

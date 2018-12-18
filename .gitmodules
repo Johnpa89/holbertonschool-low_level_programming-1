@@ -1,0 +1,6 @@
+[submodule "0x18-stacks_queues_lifo_fifo/monty/monty"]
+	path = 0x18-stacks_queues_lifo_fifo/monty/monty
+	url = https://github.com/kai-dg/monty
+[submodule "0x18-stacks_queues_lifo_fifo/monty"]
+	path = 0x18-stacks_queues_lifo_fifo/monty
+	url = https://github.com/kai-dg/monty

@@ -9,7 +9,7 @@ Start to look for the right source of information without too much help
 
 ---
 
-### [0. Print list](./ 0-print_dlistint.c)
+### [0. Print list](./0-print_dlistint.c)
 * Write a function that prints all the elements of a dlistint_t list.
 
 
@@ -37,7 +37,7 @@ Start to look for the right source of information without too much help
 * Write a function that returns the sum of all the data (n) of a dlistint_t linked list.
 
 
-### [7. Insert at index](./7-insert_dnodeint.c, 2-add_dnodeint.c, 3-add_dnodeint_end.c)
+### [7. Insert at index](./7-insert_dnodeint.c)
 * Write a function that inserts a new node at a given position.
 
 
